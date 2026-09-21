@@ -8,6 +8,7 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrolsp",
+  version = "^4.0",
   ---@type AstroLSPOpts
   opts = {
     -- Configuration table of features provided by AstroLSP
@@ -15,6 +16,10 @@ return {
       codelens = true, -- enable/disable codelens refresh on start
       inlay_hints = false, -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
+    },
+    -- Keep Noice in charge of hover while using AstroLSP for signature help.
+    defaults = {
+      hover = false,
     },
     -- customize lsp formatting options
     formatting = {
@@ -91,7 +96,9 @@ return {
           -- the rest of the autocmd options (:h nvim_create_autocmd)
           desc = "Refresh codelens (buffer)",
           callback = function(args)
-            if require("astrolsp").config.features.codelens then vim.lsp.codelens.refresh { bufnr = args.buf } end
+            if require("astrolsp").config.features.codelens then
+              vim.lsp.codelens.enable(true, { bufnr = args.buf })
+            end
           end,
         },
       },
@@ -109,7 +116,7 @@ return {
           function() require("astrolsp.toggles").buffer_semantic_tokens() end,
           desc = "Toggle LSP semantic highlight (buffer)",
           cond = function(client)
-            return client.supports_method "textDocument/semanticTokens/full" and vim.lsp.semantic_tokens ~= nil
+            return client:supports_method "textDocument/semanticTokens/full" and vim.lsp.semantic_tokens ~= nil
           end,
         },
       },
