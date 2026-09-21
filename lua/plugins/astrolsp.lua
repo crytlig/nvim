@@ -13,8 +13,8 @@ return {
   opts = {
     -- Configuration table of features provided by AstroLSP
     features = {
-      codelens = true, -- enable/disable codelens refresh on start
-      inlay_hints = false, -- enable/disable inlay hints on start
+      codelens = true,        -- enable/disable codelens refresh on start
+      inlay_hints = false,    -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
     },
     -- Keep Noice in charge of hover while using AstroLSP for signature help.
@@ -25,7 +25,7 @@ return {
     formatting = {
       -- control auto formatting on save
       format_on_save = {
-        enabled = true, -- enable or disable format on save globally
+        enabled = true,     -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
         },
@@ -51,12 +51,12 @@ return {
     -- customize language server configuration options passed to `vim.lsp.config`
     ---@diagnostic disable: missing-fields
     config = {
-        nushell = {
-          cmd = {
+      nushell = {
+        cmd = {
           "nu", "--lsp",
         },
       },
-        gopls = {
+      gopls = {
         settings = {
           gopls = {
             buildFlags = { "-tags=e2e,integration" },
@@ -72,11 +72,6 @@ return {
     },
     -- customize how language servers are attached
     handlers = {
-      -- terraform-ls is installed by Mason, but indexing large Terraform
-      -- workspaces can consume significant CPU and cause request timeouts.
-      -- Keep it available for manual startup with `:lua vim.lsp.enable("terraformls")`.
-      terraformls = false,
-
       -- use the `*` key for a global handler; handlers receive the server name
       -- ["*"] = function(server) vim.lsp.enable(server) end
 
