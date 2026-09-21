@@ -40,13 +40,13 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      "nu_lsp"
+      "nushell"
       -- "pyright"
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
-        nu_lsp = {
+        nushell = {
           cmd = {
           "nu", "--lsp",
         },
