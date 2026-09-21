@@ -1,15 +1,10 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
--- Customize Treesitter
-
----@type LazySpec
 return {
-  "nvim-treesitter/nvim-treesitter",
+  "AstroNvim/astrocore",
   opts = {
-    ensure_installed = {
-      "lua",
-      "vim",
-      -- add more arguments for adding more treesitter parsers
+    treesitter = {
+      -- AstroNvim v6 configures Treesitter through AstroCore.
+      -- Add the parser used by Noice for regex command-line highlighting.
+      ensure_installed = { "regex", "lua", "vim" },
     },
   },
 }

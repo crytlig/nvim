@@ -24,6 +24,6 @@ return {
       preview_method = "fast_scratch",
     },
   },
-  dependencies = { { "echasnovski/mini.icons", opts = {} } },
+  dependencies = { { "nvim-mini/mini.icons", opts = {} } },
   lazy = false,
 }

@@ -14,7 +14,6 @@ local plugins = {
   "nvim-treesitter",
   "nvim-ts-autotag",
   "nvim-treesitter-textobjects",
-  "nvim-ts-context-commentstring",
 }
 
 local Config = require("lazy.core.config")
