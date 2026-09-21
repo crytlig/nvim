@@ -72,6 +72,11 @@ return {
     },
     -- customize how language servers are attached
     handlers = {
+      -- terraform-ls is installed by Mason, but indexing large Terraform
+      -- workspaces can consume significant CPU and cause request timeouts.
+      -- Keep it available for manual startup with `:lua vim.lsp.enable("terraformls")`.
+      terraformls = false,
+
       -- use the `*` key for a global handler; handlers receive the server name
       -- ["*"] = function(server) vim.lsp.enable(server) end
 
